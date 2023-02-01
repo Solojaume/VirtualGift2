@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu Inicio/Menu inicio.unity
+    guid: a603d610d6c4d614689705deb4ab2c26
+  - enabled: 1
+    path: Assets/Scenes/Menu recivir regalo/Menu Recivir Regalo.unity
+    guid: 1510c6dd164bd9e4e9db14e6a27ab637
+  - enabled: 1
+    path: Assets/Scenes/Menu recivir regalo/Menu Recivir Por Codigo/Recivir por codigo.unity
+    guid: 72e19ad73ba84114d90402476fb09d1c
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
