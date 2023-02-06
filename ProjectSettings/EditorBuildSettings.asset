@@ -14,7 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu recivir regalo/Menu Recivir Por Codigo/Recivir por codigo.unity
     guid: 72e19ad73ba84114d90402476fb09d1c
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Abrir Regalo/Abrir Regalo.unity
+    guid: 6051fabf2aee2db4dbf5d5e7c6a13f2f
   m_configObjects: {}

@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class RecivirPorCodigo : MonoBehaviour
 {
-    private string codigoValido = "PBMV2023";
+    private string codigoValido = "";
+    //private string codigoValido = "PBMV2023";
     private string codigoIntroducido = "";
 
     InputField ICodigo;
