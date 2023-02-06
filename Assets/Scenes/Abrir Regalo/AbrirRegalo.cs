@@ -7,19 +7,13 @@ public class AbrirRegalo : MonoBehaviour
 
     private bool clickIzquierdoPulsado;
     public float velX, velY;
-    
-    public float speed;
-    public float jumpHeight;
-    public GameObject tapa;
-   // bool is Attacking;
-     private Rigidbody rg;
-    //public ControllerType controller;
+   
     
     // Start is called before the first frame update
     void Start()
     {
         clickIzquierdoPulsado = false;
-        this.rb = GetComponent<Rigidbody>;
+        
     }
 
     // Update is called once per frame
@@ -56,14 +50,6 @@ public class AbrirRegalo : MonoBehaviour
         }
     }
 
-    public void Move()
-    {
-        
-        velX = Input.GetAxisRaw("Horizontal");
-        velY = Input.GetAxisRaw("Vertical");
-
-         rb.velocity = new Vector3(velX, velY, 0);
-
-    }
+   
 
 }
