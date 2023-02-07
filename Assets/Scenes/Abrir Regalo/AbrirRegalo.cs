@@ -7,7 +7,7 @@ public class AbrirRegalo : MonoBehaviour
 
     private bool clickIzquierdoPulsado;
     private bool clickIzquierdoRecienPulsado;
-    private float pInicialY;
+    private float pInicialY,pDejadaTapa;
     private GameObject tapa;
     private float pIRenY;
     // Start is called before the first frame update
@@ -27,8 +27,7 @@ public class AbrirRegalo : MonoBehaviour
         {
             //Se guarda el estado de que se a clikcado en una variable
             this.clickIzquierdoPulsado = true;
-            //Se guarda que se ha clickado por primera vez
-            clickIzquierdoRecienPulsado = true;
+           
             Vector3 mousePos = Input.mousePosition;
             float yC = mousePos.y;
             this.pIRenY = yC;
@@ -56,15 +55,15 @@ public class AbrirRegalo : MonoBehaviour
             //Se guarda el estado de que se a soltado en una variable
             clickIzquierdoPulsado = false;
 
+            //Se guarda que se ha clickado por primera vez
+            clickIzquierdoRecienPulsado = true;
+
             //Se actualiza la posicion inical del raton en y
             pIRenY = 0f;
+
+            pDejadaTapa = tapa.transform.position.y;
         }
     }
-
-    void FixedUpdate() {
-        
-    }
-    
 
     //Metodo encargado de mover la tapa
     public void MoveTapa(Vector3 position)
@@ -81,22 +80,32 @@ public class AbrirRegalo : MonoBehaviour
         y -= pIRenY;
         Debug.Log("Posicion y despues de descontar Y Raton inicial : " + y);
 
-        y += pInicialY;
-        Debug.Log("Posicion y despues de descontar Y Raton inicial, e Y inicial : " + y);
+        
+        switch(clickIzquierdoRecienPulsado){
+            case false:
+                y += //Sumamos la posicion inicial del objeto y esto se hace dado que esta es negativa
+                 y += pInicialY;
+                Debug.Log("Posicion y despues de descontar Y Raton inicial, e Y inicial : " + y);
+                break;
+            default:
+                y += pDejadaTapa;
+                break;
+
+        }
+        
+        
+
         //Se comprueba que Y es mayor que  la posicion inicial de la tapa, si lo es se reinicia
-        if (y<pInicialY)
+        if (y < pInicialY)
         {
             y = pInicialY;
             Debug.Log("y reiniciada");
         }
-        if(clickIzquierdoRecienPulsado == true)
-        {
-            y = tapa.transform.position.y;
-            clickIzquierdoRecienPulsado = false;
-        }
 
+        float height = Screen.height;
+        height -= ((pIRenY*20)/100);
         //Si y es menor que la altura de la pantalla se cambia la posición de la tapa
-        if(y<Screen.height-pIRenY)
+        if (y<height)
         {
             tapa.transform.position = new Vector3(x, y, z);
         }
