@@ -14,8 +14,8 @@ public class AbrirRegalo : MonoBehaviour
     void Start()
     {
         clickIzquierdoPulsado = false;
-        GameObject this.objeto = GameObject.Find("tapa");
-        pInicialY = this.objeto.transform.position.y;
+        objeto = GameObject.Find("tapa");
+        pInicialY = objeto.transform.position.y;
         clickIzquierdoRecienPulsado = false;
     }
 
@@ -61,7 +61,7 @@ public class AbrirRegalo : MonoBehaviour
             //Se actualiza la posicion inical del raton en y
             pIRenY = 0f;
 
-            pDejadaTapa = this.objeto.transform.position.y;
+            pDejadaTapa = objeto.transform.position.y;
         }
     }
 
@@ -112,13 +112,28 @@ public class AbrirRegalo : MonoBehaviour
         float height = Screen.height;
         Debug.Log("Screen height: " + height);
 
-        height = ((height * 2) / 100);
+        switch (height)
+        {
+            case >1500:
+                height = ((height * 0.75F) / 100);
+                break;
+            case > 900:
+                height = ((height * 1) / 100);
+                break;
+            case > 600:
+                height = ((height * 1.5F) / 100);
+                break;
+            case > 0:
+                height = ((height * 2F) / 100);
+                break;
+        }
+        
         Debug.Log("height: " + height);
         //Si y es menor que la altura de la pantalla se cambia la posición de la tapa
         if (y > height)
         {
-
             y = height;
+            
         }
         tapa.transform.position = new Vector3(x, y, z);
         Debug.Log("Y resultante : " + y);
