@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using VirtualGift.Programacion;
+using VirtualGift.Programacion.Helper;
 
 public class RecivirPorCodigo : MonoBehaviour
 {

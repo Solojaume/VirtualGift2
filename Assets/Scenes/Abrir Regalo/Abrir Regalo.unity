@@ -474,7 +474,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 951772034}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1298875121}
+        m_TargetAssemblyTypeName: VirtualGift.Scenes.AbrirRegalo.AbrirRegalo, Assembly-CSharp
+        m_MethodName: VolverAAbrir
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &951772034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1172,7 +1184,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 957969041}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_TargetAssemblyTypeName: VirtualGift.Scenes.AbrirRegalo.MenuController,
+          Assembly-CSharp
         m_MethodName: VolverAtras
         m_Mode: 1
         m_Arguments:
@@ -1324,7 +1337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ff6833635a0d1054fb0bf1c7cdc85904, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.0264435
+      value: -13.0265
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ff6833635a0d1054fb0bf1c7cdc85904, type: 3}
       propertyPath: m_LocalPosition.y
