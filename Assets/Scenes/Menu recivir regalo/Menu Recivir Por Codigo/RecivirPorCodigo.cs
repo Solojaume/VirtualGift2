@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using VirtualGift.Programacion;
 
 public class RecivirPorCodigo : MonoBehaviour
 {
@@ -34,7 +35,8 @@ public class RecivirPorCodigo : MonoBehaviour
     //Comprueva si el codigo introducido es valido al pulsar "Abrir regalo"
     public void AbrirRegalo()
     {
-        if(codigoIntroducido == codigoValido)
+        ProgramaHelper.PantallaAnterior = 2;
+        if (codigoIntroducido == codigoValido)
         {
             SceneManager.LoadScene(3);
         }
@@ -43,6 +45,7 @@ public class RecivirPorCodigo : MonoBehaviour
     //Lleva a la pantalla RECIVIR MENU
     public void Volver()
     {
+        ProgramaHelper.PantallaAnterior = 2;
         SceneManager.LoadScene("Menu Recivir Regalo");
     }
 

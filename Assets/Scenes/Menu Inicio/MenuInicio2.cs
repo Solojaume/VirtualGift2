@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using VirtualGift.Programacion.Helper;
 
 public class MenuInicio2 : MonoBehaviour
 {
     //Recivir un Regalo
     public void RecibirRegalo()
     {
+        ProgramaHelper.PantallaAnterior = 0;
         SceneManager.LoadScene("Menu Recivir Regalo");
 
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using VirtualGift.Programacion;
 
 public class MenuController : MonoBehaviour
 {
@@ -24,11 +25,14 @@ public class MenuController : MonoBehaviour
 
     //Sirve para volver al usuario a la pantalla anterior
     public void VolverAtras() {
-        //SceneManager.LoadScene();
+
+        SceneManager.LoadScene(ProgramaHelper.PantallaAnterior);
+        ProgramaHelper.PantallaAnterior = 3;
     }
 
     //Como su nombre indica te lleva a dicho menú
     public void MenuPrincipal() {
+        ProgramaHelper.PantallaAnterior = 3;
         SceneManager.LoadScene("Menu Inicio");
     }
 }
