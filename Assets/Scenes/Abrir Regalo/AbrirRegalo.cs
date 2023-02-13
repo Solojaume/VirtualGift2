@@ -5,19 +5,29 @@ using VirtualGift.Programacion.Helper;
 
 namespace VirtualGift.Scenes.AbrirRegalo
 {
-    public class AbrirRegalo : MonoBehaviour
+    public class AbrirRegalo : AbrirRegaloHelper
     {
 
-        private bool clickIzquierdoPulsado;
-        private bool clickIzquierdoRecienPulsado;
-        private float pInicialY, pDejadaTapa;
-        private GameObject objeto;
-        private float pIRenY;
+        protected bool clickIzquierdoPulsado;
+        protected bool clickIzquierdoRecienPulsado;
+        protected float pInicialY, pDejadaTapa;
+        protected string Tipo = ProgramaHelper.regalo.Tipo;
+        protected float pIRenY;
+        protected GameObject objeto;
+
         // Start is called before the first frame update
         void Start()
         {
             clickIzquierdoPulsado = false;
-            objeto = GameObject.Find("tapa");
+            //Colocamos la caja en el lugar inicial
+            objeto = GameObject.Find("caja" + Tipo);
+
+            objeto = GameObject.Find("tapa"+ Tipo);
+            //Colocamos la tapa en el lugar inial de la caja
+            MoveTapa(ProgramaHelper.PosicionInicialTapaCaja);
+            
+            
+
             pInicialY = objeto.transform.position.y;
             clickIzquierdoRecienPulsado = false;
         }
@@ -79,7 +89,7 @@ namespace VirtualGift.Scenes.AbrirRegalo
         //Metodo encargado de mover la tapa
         public void MoveTapa(Vector3 position)
         {
-            GameObject tapa = GameObject.Find("tapa");
+            GameObject tapa = GameObject.Find("tapa" + Tipo);
 
             float height = Screen.height;
             Debug.Log("Screen height: " + height);
@@ -159,14 +169,14 @@ namespace VirtualGift.Scenes.AbrirRegalo
 
         }
 
-      
+
         // Metodo que coloca todo en de origen
         //Es decir cierra la caja y coloca el regalo en su sitio de origen
         public void VolverAAbrir()
         {
             MoveTapa(ProgramaHelper.PosicionInicialTapaCaja);
             clickIzquierdoPulsado = false;
-            objeto = GameObject.Find("tapa");
+            objeto = GameObject.Find("tapa" + Tipo);
             pInicialY = objeto.transform.position.y;
             clickIzquierdoRecienPulsado = false;
             ProgramaHelper.VolverAAbrirRegalo();

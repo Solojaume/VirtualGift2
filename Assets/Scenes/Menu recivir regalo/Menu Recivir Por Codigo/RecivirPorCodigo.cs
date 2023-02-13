@@ -1,10 +1,11 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VirtualGift.Programacion.Helper;
-
+using VirtualGift.Programacion.Models;
 public class RecivirPorCodigo : MonoBehaviour
 {
     private string codigoValido = "";
@@ -36,10 +37,19 @@ public class RecivirPorCodigo : MonoBehaviour
     public void AbrirRegalo()
     {
         ProgramaHelper.PantallaAnterior = 2;
-        if (codigoIntroducido == codigoValido)
+        try
         {
+            string r = ArchivoHelper.LeerArchivoGuardado("regalos/" + codigoIntroducido);
+            Envoltorio? en = JsonHelper.Deserialize(r);
+            Debug.Log("El contenido del archivo es: " + r);
+            ProgramaHelper.regalo = en;
             SceneManager.LoadScene(3);
         }
+        catch(Exception msg)
+        {
+            Debug.Log("Nose encontro el archivo: "+ msg);
+        }
+        
     }
 
     //Lleva a la pantalla RECIVIR MENU
