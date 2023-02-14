@@ -15,7 +15,7 @@ public class RecivirPorCodigo : MonoBehaviour
     InputField ICodigo;
     void start()
     {
-        
+        ProgramaHelper.reiniciarEnvoltorio();
     }
     void update()
     {
@@ -40,9 +40,12 @@ public class RecivirPorCodigo : MonoBehaviour
         try
         {
             string r = ArchivoHelper.LeerArchivoGuardado("regalos/" + codigoIntroducido);
-            Envoltorio? en = JsonHelper.Deserialize(r);
+           JsonHelper.Deserialize(r);
+            Envoltorio en = ProgramaHelper.regalo;
             Debug.Log("El contenido del archivo es: " + r);
             ProgramaHelper.regalo = en;
+            Debug.Log("Nombre:"+ en.Name);
+            Debug.Log("Tipo:" + en.Tipo);
             SceneManager.LoadScene(3);
         }
         catch(Exception msg)
