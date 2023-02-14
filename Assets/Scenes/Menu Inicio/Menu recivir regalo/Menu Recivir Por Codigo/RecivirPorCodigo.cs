@@ -15,7 +15,7 @@ public class RecivirPorCodigo : MonoBehaviour
     InputField ICodigo;
     void start()
     {
-
+        
     }
     void update()
     {

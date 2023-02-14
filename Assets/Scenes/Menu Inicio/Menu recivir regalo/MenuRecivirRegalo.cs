@@ -31,4 +31,9 @@ public class MenuRecivirRegalo : MonoBehaviour
     {
         
     }
+
+    void Start()
+    {
+        ProgramaHelper.reiniciarEnvoltorio();
+    }
 }

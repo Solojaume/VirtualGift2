@@ -6,6 +6,10 @@ using VirtualGift.Programacion.Helper;
 
 public class MenuInicio2 : MonoBehaviour
 {
+    void Start()
+    {
+        ProgramaHelper.reiniciarEnvoltorio();
+    }
     //Recivir un Regalo
     public void RecibirRegalo()
     {

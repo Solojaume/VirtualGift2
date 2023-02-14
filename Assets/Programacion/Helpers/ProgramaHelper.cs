@@ -11,14 +11,18 @@ namespace VirtualGift.Programacion.Helper
         public static bool CajaRegaloAbierta = false;
 
 
-        //Comunica al programa si se habia sacado un regalo
+        //Comunica al programa si se habia empezado amover el regalo
+        public static bool primerMovimientoRegalo = false;
+
+        //Comunica al programa si se habia sacado un regalo Completamente
         public static bool RegaloSacado = false;
 
         //Corresponde al id de la escena anterior que se estaba visitando
         public static int PantallaAnterior = 0;
 
-        public readonly static Vector3 posicionInicialCajaEnvoltorio = new Vector3(-13.0265f, -41.6467f, -1.132843f);
-        public readonly static Vector3 PosicionInicialTapaCaja = new Vector3(-12.12644f, -184, 0.1281f);
+        public readonly static Vector3 posicionInicialCajaEnvoltorio = new Vector3(68.09995f, 2, 492.4391f);
+        public readonly static Vector3 posicionInicialRegalo = new Vector3(118f, 21f, 549f);
+        public readonly static Vector3 PosicionInicialTapaCaja = new Vector3(69f, -141f, 493.7f);
 
         private static Regalo pre = new Regalo("suspectPaula", "JuegoCartas");
         //Creo envoltorio compartido por toda la aplicacion
@@ -28,6 +32,11 @@ namespace VirtualGift.Programacion.Helper
             CajaRegaloAbierta = false;
             RegaloSacado = false;
         }
+        public static void reiniciarEnvoltorio()
+        {
+            pre = new Regalo("suspectPaula", "JuegoCartas");
+            regalo = new Envoltorio("pbmv2023", "Paulita", pre);   
+    }
 
     };
 }
