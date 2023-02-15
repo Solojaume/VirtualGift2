@@ -7,7 +7,6 @@ namespace VirtualGift.Scenes.AbrirRegalo
 {
     public class AbrirRegalo : AbrirRegaloHelper
     {
-
         protected bool clickIzquierdoPulsado;
         protected bool clickIzquierdoRecienPulsado;
         protected float pInicialY, pDejadaTapa;
@@ -16,6 +15,7 @@ namespace VirtualGift.Scenes.AbrirRegalo
         protected GameObject objeto;
         protected string nombreRegalo = "";
         protected bool recienPulsadoVolverAAbrir = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -30,6 +30,7 @@ namespace VirtualGift.Scenes.AbrirRegalo
 
             //colocamos El regalo en su lugar
             try {
+
                 this.nombreRegalo = ProgramaHelper.regalo.Contenido.Name;
                 objeto = GameObject.Find(this.nombreRegalo);
             }
@@ -51,6 +52,7 @@ namespace VirtualGift.Scenes.AbrirRegalo
             objeto.transform.position = ProgramaHelper.PosicionInicialTapaCaja;
             pInicialY = objeto.transform.position.y;
             clickIzquierdoRecienPulsado = false;
+            ProgramaHelper.VolverAAbrirRegalo();
         }
 
         // Update is called once per frame
@@ -85,7 +87,7 @@ namespace VirtualGift.Scenes.AbrirRegalo
                         case true:
                             if (ProgramaHelper.primerMovimientoRegalo == false)
                             {
-                                clickIzquierdoPulsado=false;
+                                //clickIzquierdoPulsado=false;
                                 clickIzquierdoRecienPulsado = false;
                                 pIRenY = y;
                                 objeto = GameObject.Find(this.nombreRegalo);
@@ -95,7 +97,7 @@ namespace VirtualGift.Scenes.AbrirRegalo
                             switch (clickIzquierdoPulsado)
                             {
                                 case false:
-                                    Debug.Log("Click izquierda Pulsado TRue");
+                                    Debug.Log("Click izquierda Pulsado false");
                                     break; 
                                 default:
                                     Debug.Log("Sw TRue");
@@ -172,35 +174,38 @@ namespace VirtualGift.Scenes.AbrirRegalo
             {
                 return 0;
             }
-
-            ProgramaHelper.primerMovimientoRegalo = true;
-            Debug.Log("CajaAbierta: " + ProgramaHelper.CajaRegaloAbierta);
-            GameObject tapa = GameObject.Find(this.nombreRegalo);
-
-            float height = Screen.height;
-            Debug.Log("Screen height: " + height);
-
-            switch (height)
+            if (clickIzquierdoPulsado = true)
             {
-                case > 1500:
-                    height = ((height * 7.5F) / 100);
-                    break;
-                case > 900:
-                    height = ((height * 10) / 100);
-                    break;
-                case > 600:
-                    height = ((height * 25F) / 100);
-                    break;
-                case > 0:
-                    height = ((height * 30F) / 100);
-                    break;
-            }
+                ProgramaHelper.primerMovimientoRegalo = true;
+                Debug.Log("CajaAbierta: " + ProgramaHelper.CajaRegaloAbierta);
+                GameObject tapa = GameObject.Find(this.nombreRegalo);
 
-            Debug.Log("height: " + height);
-            if (MoveObject(position, tapa, height) == true)
-            {
-                ProgramaHelper.RegaloSacado = true;
+                float height = Screen.height;
+                Debug.Log("Screen height: " + height);
+
+                switch (height)
+                {
+                    case > 1500:
+                        height = ((height * 7.5F) / 100);
+                        break;
+                    case > 900:
+                        height = ((height * 10) / 100);
+                        break;
+                    case > 600:
+                        height = ((height * 25F) / 100);
+                        break;
+                    case > 0:
+                        height = ((height * 30F) / 100);
+                        break;
+                }
+
+                Debug.Log("height: " + height);
+                if (MoveObject(position, tapa, height) == true)
+                {
+                    ProgramaHelper.RegaloSacado = true;
+                }
             }
+            
             return 1;
         }
 

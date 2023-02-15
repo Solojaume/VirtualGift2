@@ -33,10 +33,10 @@ namespace VirtualGift.Programacion.Helper
             return JsonUtility.ToJson(o);
         }
 
-        public static Envoltorio Deserialize(string json)
+        public static void Deserialize(string json)
         {
-            Envoltorio? en = JsonUtility.FromJson<Envoltorio>(json);
-            return en;
+            JsonUtility.FromJsonOverwrite(json,ProgramaHelper.regalo);
+            //return en;
         }
 
         public static Regalo DeserializeRegalo(string json)

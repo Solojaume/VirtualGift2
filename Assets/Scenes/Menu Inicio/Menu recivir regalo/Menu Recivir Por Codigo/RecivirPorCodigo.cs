@@ -40,7 +40,7 @@ public class RecivirPorCodigo : MonoBehaviour
         try
         {
             string r = ArchivoHelper.LeerArchivoGuardado("regalos/" + codigoIntroducido);
-           JsonHelper.Deserialize(r);
+            JsonHelper.Deserialize(r);
             Envoltorio en = ProgramaHelper.regalo;
             Debug.Log("El contenido del archivo es: " + r);
             ProgramaHelper.regalo = en;
