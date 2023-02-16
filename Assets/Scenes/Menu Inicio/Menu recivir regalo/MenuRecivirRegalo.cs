@@ -6,6 +6,7 @@ using VirtualGift.Programacion.Helper;
 
 public class MenuRecivirRegalo : MonoBehaviour
 {
+
     //LLeva a la pantalla que sirve para introducir un codigo
     public void RecivirCodigo()
     {

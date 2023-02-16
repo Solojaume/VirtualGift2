@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using VirtualGift.Programacion.Models.Interfaces;
 using VirtualGift.Programacion.Helper;
 
@@ -23,6 +25,5 @@ namespace VirtualGift.Programacion.Models
             this.Name = name;
             this.TipoObjeto = "Regalo";
         }
-
     }
 }

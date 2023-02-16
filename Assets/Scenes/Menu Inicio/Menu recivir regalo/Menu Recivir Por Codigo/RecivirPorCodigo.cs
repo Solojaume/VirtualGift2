@@ -44,7 +44,9 @@ public class RecivirPorCodigo : MonoBehaviour
             Envoltorio en = ProgramaHelper.regalo;
             Debug.Log("El contenido del archivo es: " + r);
             ProgramaHelper.regalo = en;
-            Debug.Log("Nombre:"+ en.Name);
+           // Debug.Log("Nombre:"+ en.Name);
+            Debug.Log("Nombre cont:" + en.Contenido.Name);
+            Debug.Log("Tipos cont:" + en.Contenido.Name);
             Debug.Log("Tipo:" + en.Tipo);
             SceneManager.LoadScene(3);
         }

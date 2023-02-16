@@ -20,23 +20,39 @@ namespace VirtualGift.Programacion.Helper
         //Corresponde al id de la escena anterior que se estaba visitando
         public static int PantallaAnterior = 0;
 
+        //Declaro diccionario
+        public static Dictionary<string, Vector3> diccionarioObjetos = new Dictionary<string, Vector3>()
+        {
+            {"suspectCard",new Vector3(60, 50f, 549f) },
+            {"suspectPaula",new Vector3(118, 21f, 549f) },
+        };
+
+
         public readonly static Vector3 posicionInicialCajaEnvoltorio = new Vector3(68.09995f, 2, 492.4391f);
-        public readonly static Vector3 posicionInicialRegalo = new Vector3(118f, 21f, 549f);
+        public  static Vector3 posicionInicialRegalo = new Vector3(60, 21f, 549f);
         public readonly static Vector3 PosicionInicialTapaCaja = new Vector3(69f, -141f, 493.7f);
 
         private static Regalo pre = new Regalo("suspectPaula", "JuegoCartas");
         //Creo envoltorio compartido por toda la aplicacion
-        public static Envoltorio regalo = new Envoltorio("pbmv2023", "Paulita", pre);
+        public static Envoltorio regalo;
+
         public static void VolverAAbrirRegalo()
         {
             CajaRegaloAbierta = false;
             RegaloSacado = false;
         }
+
         public static void reiniciarEnvoltorio()
         {
             pre = new Regalo("suspectPaula", "JuegoCartas");
-            regalo = new Envoltorio("pbmv2023", "Paulita", pre);   
-    }
+            regalo = new Envoltorio("pbmv2023", "Paulita", pre);
+       
+        }
+
+        public static void reiniciarRegalo(string r)
+        {
+            posicionInicialRegalo = diccionarioObjetos[r];
+        }
 
     };
 }

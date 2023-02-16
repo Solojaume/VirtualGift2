@@ -1,6 +1,7 @@
 ﻿using System;
 using VirtualGift.Programacion.Models;
 using UnityEngine;
+using Newtonsoft.Json;
 
 namespace VirtualGift.Programacion.Helper
 {
@@ -12,7 +13,8 @@ namespace VirtualGift.Programacion.Helper
             var options = new JsonSerializerOptions { WriteIndented = true };
             return JsonSerializer.Serialize(o,options);
             */
-            return JsonUtility.ToJson(o);
+           
+            return JsonConvert.SerializeObject(o);
         }
 
         public static string Serialize(Envoltorio o)
@@ -21,7 +23,7 @@ namespace VirtualGift.Programacion.Helper
             var options = new JsonSerializerOptions { WriteIndented = true };
             return JsonSerializer.Serialize(o,options);
             */
-            return JsonUtility.ToJson(o);
+            return JsonConvert.SerializeObject(o);
         }
 
         public static string Serialize(Objeto o)
@@ -30,13 +32,13 @@ namespace VirtualGift.Programacion.Helper
             var options = new JsonSerializerOptions { WriteIndented = true };
             return JsonSerializer.Serialize(o,options);
             */
-            return JsonUtility.ToJson(o);
+            return JsonConvert.SerializeObject(o);
         }
-
+        //Deserializa el Json y lo asigna a ProgramaHelper.regalo
         public static void Deserialize(string json)
         {
-            JsonUtility.FromJsonOverwrite(json,ProgramaHelper.regalo);
-            //return en;
+            ProgramaHelper.regalo = JsonConvert.DeserializeObject<Envoltorio>(json);
+            
         }
 
         public static Regalo DeserializeRegalo(string json)

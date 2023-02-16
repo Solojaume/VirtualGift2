@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using VirtualGift.Programacion.Helper;
 using System;
+using VirtualGift.Programacion.Models;
+
 namespace VirtualGift.Scenes.AbrirRegalo
 {
     public class AbrirRegalo : AbrirRegaloHelper
@@ -10,7 +12,7 @@ namespace VirtualGift.Scenes.AbrirRegalo
         protected bool clickIzquierdoPulsado;
         protected bool clickIzquierdoRecienPulsado;
         protected float pInicialY, pDejadaTapa;
-        protected string Tipo = ProgramaHelper.regalo.Tipo;
+        protected string Tipo ;
         protected float pIRenY;
         protected GameObject objeto;
         protected string nombreRegalo = "";
@@ -19,28 +21,27 @@ namespace VirtualGift.Scenes.AbrirRegalo
         // Start is called before the first frame update
         void Start()
         {
+            if (ProgramaHelper.regalo == null)
+            {
+                ProgramaHelper.reiniciarEnvoltorio();
+            }
             clickIzquierdoPulsado = false;
-
+            
             //Asignamos el tipo de regalo leido a la vaiable tipo
             this.Tipo = ProgramaHelper.regalo.Tipo;
 
             //Colocamos la caja en el lugar inicial
             objeto = GameObject.Find("caja" + this.Tipo);
             objeto.transform.position = ProgramaHelper.posicionInicialCajaEnvoltorio;
-
+     
+            //Asignamos el nombre del regalo a una variable
+            this.nombreRegalo = ProgramaHelper.regalo.Contenido.Name == "" ? ProgramaHelper.regalo.Contenido.Tipo : ProgramaHelper.regalo.Contenido.Name;
+            Debug.Log("Nombre regalo: " + this.nombreRegalo);
+            //Preparamos la posicion del regalo
+            ProgramaHelper.reiniciarRegalo(nombreRegalo);
             //colocamos El regalo en su lugar
-            try {
-
-                this.nombreRegalo = ProgramaHelper.regalo.Contenido.Name;
-                objeto = GameObject.Find(this.nombreRegalo);
-            }
-            catch(Exception ms) {
-                Debug.Log("Error no se ha encontrado el siguiente objeto:"+ms);
-                this.nombreRegalo = ProgramaHelper.regalo.Contenido.Tipo;
-                objeto = GameObject.Find(this.nombreRegalo);
-            }
+            objeto = GameObject.Find(this.nombreRegalo);
             objeto.transform.position = ProgramaHelper.posicionInicialRegalo;
-
 
             Debug.Log("TIPO: "+this.Tipo);
             objeto = GameObject.Find("tapa"+ this.Tipo);
