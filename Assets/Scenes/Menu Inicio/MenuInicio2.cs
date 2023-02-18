@@ -18,6 +18,18 @@ public class MenuInicio2 : MonoBehaviour
 
     }
 
+    public void EnviarRegalo()
+    {
+        ProgramaHelper.PantallaAnterior = 0;
+        SceneManager.LoadScene(4);
+
+    }
+    public void CrearRegalo()
+    {
+        ProgramaHelper.PantallaAnterior = 0;
+        SceneManager.LoadScene(5);
+    }
+
     //Salir de la aplicacion
     public void Salir()
     {

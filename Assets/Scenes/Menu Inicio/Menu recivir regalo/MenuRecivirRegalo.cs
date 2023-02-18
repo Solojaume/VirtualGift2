@@ -18,7 +18,7 @@ public class MenuRecivirRegalo : MonoBehaviour
     public void RecivirQR()
     {
         ProgramaHelper.PantallaAnterior = 1;
-        //SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("SampleScene");
     }
 
     //Lleva a la pantalla PRINCIPAL
