@@ -25,7 +25,7 @@ namespace VirtualGift.Programacion.Helper
         {
             {"suspectCard",new Vector3(60, 50f, 549f) },
             {"suspectPaula",new Vector3(118, 21f, 549f) },
-            {"Rosas",new Vector3(58.7f, 20.8f, 494.9f) },
+            {"Rosas",new Vector3(58.7f, 10f, 494.9f) },
         };
 
 

@@ -17,6 +17,12 @@ public class MenuInicio2 : MonoBehaviour
         SceneManager.LoadScene("Menu Recivir Regalo");
 
     }
+    public void AbrirRegalo()
+    {
+        ProgramaHelper.PantallaAnterior = 0;
+        SceneManager.LoadScene(2);
+
+    }
 
     public void EnviarRegalo()
     {
